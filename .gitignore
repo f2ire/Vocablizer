@@ -1,0 +1,10 @@
+bin
+build
+include
+lib*
+.idea
+make.bat
+Makefile
+pyvenv.cfg
+vocablizer\db.sqlite3
+*.pyc

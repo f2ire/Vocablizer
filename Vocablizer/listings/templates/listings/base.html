@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html>
+    <head><title>Vocablizer</title></head>
+    <link rel="stylesheet" href="{% static 'listings/styles.css' %}" />
+    <body>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'english-list' %}">English list</a></li>
+                <li><a href="{% url 'example-list' %}">Examples</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">contact</a></li>
+            </ul>
+
+        {% block content %}{% endblock %}
+    </body>
+</html>

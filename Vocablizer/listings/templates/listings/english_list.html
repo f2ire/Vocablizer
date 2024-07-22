@@ -1,0 +1,25 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+
+<h1>Home</h1>
+<p>This is a website to master any language you want.</p>
+<h2>English words:</h2>
+<ul> 
+    {% for word in words %}
+        {% if word.rank == 1 %}
+            <li><a href="{% url 'english-detail' word.id%}">{{ word.word|upper }}</a>
+            - <a href="{% url 'english-edit' word.id%}">[Edit]</a> </li>
+        {% else %}
+            <li><a href="{% url 'english-detail' word.id%}">{{ word.word|lower }}</a>
+            - <a href="{% url 'english-edit' word.id%}">[Edit]</a> </li>
+            {% endif %}
+    {% endfor %}
+</ul>
+
+<p> Length of english words list : {{ words|length }}</p>
+
+<button><a href="{% url 'english-add' %}">Add a new English word</a></button>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+    <h2> Detail for {{english_word.word}} :</h2>
+    <ul>
+        <li>Genre: {{english_word.get_genre_display}}</li>
+        {% if english_word.meaning %}
+            <li>Meaning: {{english_word.meaning}}</li>
+        {% endif %}
+        {% for example in english_word.example_set.all%}
+            <li> <a href="{% url 'example-detail' example.id%}"> Example {{ forloop.counter }}</a>
+                : {{example.example}}</li> 
+        {% endfor %}
+        <li>Created at: {{english_word.created_at}}</li>
+        <li>Updated at: {{english_word.updated_at}}</li>
+        <li>Active: {{english_word.active|yesno}}</li>
+    </ul>
+
+    <a href="{% url 'english-edit' english_word.id %}">[Edit]<a> - <a href="{% url 'english-delete' english_word.id %}">[Delete]</a> - <a href="{% url 'english-list' %}">Back to the list</a>
+
+{% endblock %}

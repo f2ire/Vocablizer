@@ -1,0 +1,17 @@
+{% extends 'listings/base.html' %}
+
+{% block content %}
+
+
+<h1>List of all examples</h1>
+<ul> 
+    {% for example in examples %}
+        <h4> Example for <a href="{% url 'example-detail' example.id%}">
+            {{ example.english}}</a> <a href="{% url 'example-edit' example.id %}">[Edit]</a>: </h4>
+        <p>- {{ example.example }} </p>
+    {% endfor %}
+</ul>
+
+<button><a href="{% url 'example-add' %}">Add a new example for an english word</a></button>
+
+{% endblock %}
